@@ -2,6 +2,10 @@
 
 For version 22.0.2 IF005
 
+Readme for Cloud Pak for Business Automation 22.0.2 IF005
+
+https://www.ibm.com/support/pages/node/6991931
+
 Installs BAW and FNCM environment.
 
 - [Disclaimer ✋](#disclaimer-)
