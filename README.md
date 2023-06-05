@@ -4,8 +4,9 @@ For version 22.0.2 IF005
 
 Installs BAW and FNCM environment.
 
-BAW Authoring (cp4ba-dev)
-BAW Server (N instances, isolation - cp4ba-test)
+- BAW Authoring (cp4ba-dev)
+
+- BAW Server (N instances, isolation - cp4ba-test)
 
 - [Disclaimer ✋](#disclaimer-)
 - [Prerequisites](#prerequisites)
