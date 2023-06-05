@@ -147,6 +147,7 @@ spec:
           yum install podman -y;
           yum install ncurses -y;
           yum install jq -y;
+          yum install httpd-tools -y;
           curl -O https://download.java.net/java/GA/jdk9/9/binaries/openjdk-9_linux-x64_bin.tar.gz;
           tar -xvf openjdk-9_linux-x64_bin.tar.gz;
           ln -fs /usr/jdk-9/bin/java /usr/bin/java;
