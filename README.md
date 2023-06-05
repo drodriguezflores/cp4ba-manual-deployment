@@ -665,11 +665,11 @@ Based on https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=d
 ```bash
 # Download the package
 curl https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/\
-ibm-cp-automation/4.1.3/ibm-cp-automation-4.1.3.tgz \
---output /usr/install/ibm-cp-automation-4.1.3.tgz
+ibm-cp-automation/4.1.5/ibm-cp-automation-4.1.5.tgz \
+--output /usr/install/ibm-cp-automation-4.1.5.tgz
 
 # Extract the package
-tar xzvf /usr/install/ibm-cp-automation-4.1.3.tgz -C /usr/install
+tar xzvf /usr/install/ibm-cp-automation-4.1.5.tgz -C /usr/install
 ```
 
 ## Cloud Pak for Business Automation Development Environment
