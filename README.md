@@ -1091,58 +1091,58 @@ cp4ba-postgresql/$(oc get pods --namespace cp4ba-postgresql -o name | cut -d"/" 
 Execute create scripts with table space directory creation
 ```bash
 # Studio
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/bas/postgresql/postgresql/create_bas_studio_db.sql'
 
 # BAW authoring DOCS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devbawdocs; chown postgres:postgres /pgsqldata/devbawdocs;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/fncm/postgresql/postgresql/createDEVBAWDOCS.sql'
 
 # BAW authoring DOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devbawdos; chown postgres:postgres /pgsqldata/devbawdos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/fncm/postgresql/postgresql/createDEVBAWDOS.sql'
 
 # BAW authoring TOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devbawtos; chown postgres:postgres /pgsqldata/devbawtos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/fncm/postgresql/postgresql/createDEVBAWTOS.sql'
 
 # BAW authoring CHOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devchos; chown postgres:postgres /pgsqldata/devchos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/fncm/postgresql/postgresql/createDEVCHOS.sql'
 ```
 
 ```bash
 # Navigator
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devicn; chown postgres:postgres /pgsqldata/devicn;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/ban/postgresql/postgresql/createICNDB.sql'
 
 # FNCM OS1
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devos1; chown postgres:postgres /pgsqldata/devos1;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/fncm/postgresql/postgresql/createOS1DB.sql'
 
 # FNCM GCD
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/devgcd; chown postgres:postgres /pgsqldata/devgcd;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-dev/fncm/postgresql/postgresql/createGCDDB.sql'
 ```
