@@ -692,6 +692,46 @@ mv /usr/install/cert-kubernetes /usr/install/cert-kubernetes-dev
 
 ### Cluster setup
 
+Based on https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=deployment-preparing-your-cluster
+
+You need a cluster admin and a non-admin user in the OpenShift identity provider to run the scripts. 
+Use the following steps to add a non-admin user:
+
+```bash
+# Move to a directory where you want to put the temp files
+cd /home
+
+# Create a user
+htpasswd -c -B -b users.htpasswd [username] [password]
+
+# Verify that it worked
+htpasswd -b -v users.htpasswd [username] [password]
+
+# Create a secret to contain the htpasswd file. You must be logged in as the admin user to the cluster
+oc create secret generic htpass-secret --from-file=htpasswd=./users.htpasswd -n openshift-config
+
+# Create a config file with the htpasswd identity provider settings
+cat <<EOF | kubectl apply -f -
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+ identityProviders:
+ - name: admins_htpasswd_provider
+   mappingMethod: claim
+   type: HTPasswd
+   htpasswd:
+     fileData:
+       name: htpass-secret
+EOF
+
+# Verify that it worked. It might take a few minutes for the update to complete
+oc logout
+oc login -u [username] -p [password]
+
+```
+
 Based on https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=cluster-setting-up-by-running-script
 
 ```bash
