@@ -1871,70 +1871,70 @@ cp4ba-postgresql/$(oc get pods --namespace cp4ba-postgresql -o name | cut -d"/" 
 Execute create scripts with table space directory creation
 ```bash
 # Application engine
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/ae/postgresql/postgresql/create_app_engine_db.sql'
 
 # BAW runtime
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/baw-aws/postgresql/postgresql/create_baw_db_instance1_for_baw.sql'
 
 # BAW runtime DOCS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testbawdocs; chown postgres:postgres /pgsqldata/testbawdocs;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createTESTBAWDOCS.sql'
 
 # BAW runtime DOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testbawdos; chown postgres:postgres /pgsqldata/testbawdos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createTESTBAWDOS.sql'
 
 # BAW runtime TOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testbawtos; chown postgres:postgres /pgsqldata/testbawtos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createTESTBAWTOS.sql'
 
 # BAW runtime CHOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testchos; chown postgres:postgres /pgsqldata/testchos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createTESTCHOS.sql'
 ```
 
 ```bash
 # Navigator
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testicn; chown postgres:postgres /pgsqldata/testicn;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/ban/postgresql/postgresql/createICNDB.sql'
 
 # FNCM OS1
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testos1; chown postgres:postgres /pgsqldata/testos1;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createOS1DB.sql'
 
 # FNCM AEOS
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testaeos; chown postgres:postgres /pgsqldata/testaeos;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createTESTAEOS.sql'
 
 # FNCM GCD
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'mkdir /pgsqldata/testgcd; chown postgres:postgres /pgsqldata/testgcd;'
-oc --namespace cp4ba-postgresql exec deploy/postgresql -- /bin/bash -c \
+oc --namespace cp4ba-postgresql exec pods/postgresql-0 -- /bin/bash -c \
 'psql postgresql://cpadmin:Password@localhost:5432/postgresdb \
 --file=/usr/dbscript-test/fncm/postgresql/postgresql/createGCDDB.sql'
 ```
